@@ -1,50 +1,23 @@
-const pizza = {
-  name: "Pepperoni",
-  price: 15,
-};
+// function sumAll(arrNum: number[]) {
+//   return arrNum.reduce((prev: number, next: number) => {
+//     return prev + next;
+//   });
+// }
 
-const toppings = ["pepperoni"];
+// console.log(sumAll([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
 
-//old
-// const order = {
-//   pizza: pizza,
-//   toppings: toppings,
-// };
+//rest parameter
+// function sumAll(message: string, ...restParameter: number[]) {
+//   console.log(message);
+//   return restParameter.reduce((prev: number, next: number) => {
+//     return prev + next;
+//   });
+// }
 
-//new shorhand syntx
-const order = {
-  pizza,
-  toppings,
-};
+// console.log(sumAll("Hello", 1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
 
-//function with new shorthan syntx
-const getOrder = function (pizza: {}, toppings: string[]) {
-  return {
-    pizza,
-    toppings,
-  };
-};
+//with arrow func
+const sumAll = (message: string, ...restParameter: number[]) =>
+  restParameter.reduce((prev: number, next: number) => prev + next);
 
-//console.log(order);
-//console.log(getOrder(pizza, toppings));
-
-//func in object
-// const pizza = {
-//     name: "Pepperoni",
-//     price: 15,
-//     getName: function () {
-//       return this.name;
-//     },
-//   };
-
-//shorthand syntx when writing func in objects
-const pizzaNew = {
-  name: "Pepperoni",
-  price: 15,
-  //   getName() {
-  //     return this.name;
-  //   },
-  getName: () => pizzaNew.name,
-};
-
-console.log(pizzaNew.getName());
+console.log(sumAll("Hello", 1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
