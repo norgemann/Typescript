@@ -1,16 +1,50 @@
-//no default parameter
-// function multiply(a: number,b: number){
-//     return a*b;
-// }
+const pizza = {
+  name: "Pepperoni",
+  price: 15,
+};
 
-//with default parameter
-// function multiply(a: number, b = 10) {
-//   return a * b;
-// }
+const toppings = ["pepperoni"];
 
-//override
-function multiply(a: number, b = 10) {
-  return a * b;
-}
+//old
+// const order = {
+//   pizza: pizza,
+//   toppings: toppings,
+// };
 
-console.log(multiply(2, 20));
+//new shorhand syntx
+const order = {
+  pizza,
+  toppings,
+};
+
+//function with new shorthan syntx
+const getOrder = function (pizza: {}, toppings: string[]) {
+  return {
+    pizza,
+    toppings,
+  };
+};
+
+//console.log(order);
+//console.log(getOrder(pizza, toppings));
+
+//func in object
+// const pizza = {
+//     name: "Pepperoni",
+//     price: 15,
+//     getName: function () {
+//       return this.name;
+//     },
+//   };
+
+//shorthand syntx when writing func in objects
+const pizzaNew = {
+  name: "Pepperoni",
+  price: 15,
+  //   getName() {
+  //     return this.name;
+  //   },
+  getName: () => pizzaNew.name,
+};
+
+console.log(pizzaNew.getName());
