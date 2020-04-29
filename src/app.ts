@@ -1,10 +1,11 @@
-const coupon: string = "pizza25 %";
+const pizzas: number = 2;
 
-function activateCoupon(coupon: string): string[] {
-  return coupon.split(" ");
+function getDiscount(productNum: number): boolean {
+  return productNum >= 3;
 }
 
-const couponReady: string = `
-This coupon give you ${activateCoupon(coupon).join(" ")} discount!
-`;
-console.log(couponReady);
+if (getDiscount(pizzas)) {
+  console.log(`You get a discount`);
+} else {
+  console.log(`Order ${3 - pizzas} more products to get a discount`);
+}
