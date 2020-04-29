@@ -1,15 +1,16 @@
-//concat arrays
-const toppings = ["pepperoni", "chilli"];
+const pizza = {
+  name: "Pepperoni",
+};
 
-const newToppings = ["mushrooms", "basil"];
+const toppings = ["pepperoni"];
 
-//const allToppings = toppings.concat(newToppings);
+//Object.assign
+//const order = Object.assign({}, pizza, { toppings });
 
-//swap th order
-//const allToppingsSwaped = [newToppings.concat(toppings)];
+//Object Spread Operator
+const order = {
+  ...pizza,
+  toppings,
+};
 
-//use the attay spread operator
-const allToppings = [...toppings, ...newToppings];
-//swap th order
-//const allToppings = [...newToppings, ...toppings ];
-console.log(allToppings);
+console.log(order);
