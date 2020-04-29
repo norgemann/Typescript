@@ -1,11 +1,10 @@
-const pizzaCost: number = 10;
-const toppingsNumber: number = 10;
+const coupon: string = "pizza25 %";
 
-function pizzaPrice(cost: number, toppings: number) {
-  //return cost + (1.5 * toppings).toString(); error
-  return cost + 1.5 * toppings;
+function activateCoupon(coupon: string): string[] {
+  return coupon.split(" ");
 }
 
-const price: number = pizzaPrice(pizzaCost, toppingsNumber);
-
-console.log(`The price of your pizza is ${price}`);
+const couponReady: string = `
+This coupon give you ${activateCoupon(coupon).join(" ")} discount!
+`;
+console.log(couponReady);
