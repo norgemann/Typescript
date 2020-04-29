@@ -1,28 +1,16 @@
-const pizzas = [{ name: "Pepperoni", toppings: ["pepperoni"] }];
+//no default parameter
+// function multiply(a: number,b: number){
+//     return a*b;
+// }
 
-//not an arrow function
-// const mappedPizzas = pizzas.map(function (pizza) {
-//   return pizza.name.toUpperCase();
-// });
+//with default parameter
+// function multiply(a: number, b = 10) {
+//   return a * b;
+// }
 
-//arrow function
-const mappedPizzas = pizzas.map((pizza) => pizza.name.toUpperCase());
+//override
+function multiply(a: number, b = 10) {
+  return a * b;
+}
 
-console.log(mappedPizzas);
-
-const pizza = {
-  name: "Blazing Inferno",
-  //   getName: function () {
-  //     //console.log(this);
-  //     //const that = this;
-  //     // setTimeout(() => {
-  //     //   console.log(this.name);
-  //     // }, 100);
-  //   },
-  //getName: () => pizza.name,
-  getName: function () {
-    return this.name;
-  },
-};
-
-console.log(pizza.getName());
+console.log(multiply(2, 20));
