@@ -1,16 +1,42 @@
-const pizza = {
-  name: "Pepperoni",
-};
+//obj destructuring
+// const pizza = {
+//   name: "Pepperoni",
+// };
 
-const toppings = ["pepperoni"];
+// function order({ name }) {
+//   console.log(name);
+// }
 
-//Object.assign
-//const order = Object.assign({}, pizza, { toppings });
+// function order({ name: pizzaName }) {
+//   console.log(pizzaName);
+// }
 
-//Object Spread Operator
-const order = {
-  ...pizza,
-  toppings,
-};
+//order(pizza);
 
-console.log(order);
+// function order({ name: pizzaName }) {
+//   return {pizzaName};
+// }
+
+// const finalOrder = order(pizza);
+// console.log(finalOrder);
+// const {pizzaName} = order(pizza);
+// console.log(pizzaName);
+
+//array destructuring
+const toppings = ["pepperoni", "fish", "mushrooms"];
+
+// function showToppings(arr) {
+//   console.log(arr);
+// }
+
+// function showToppings([first]: any) {
+//   console.log(first);
+// }
+//showToppings(toppings);
+
+function showToppings([first, second, third]: any) {
+  return [first, second, third];
+}
+
+const [, , third] = showToppings(toppings);
+console.log(third);
