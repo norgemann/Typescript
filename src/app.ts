@@ -1,7 +1,7 @@
 //Setters and Getters (Accessors)
 
 class Sizes {
-  constructor(private sizes: string[]) {}
+  constructor(public sizes: string[]) {}
 
   get availableSizes() {
     return this.sizes;
@@ -12,20 +12,20 @@ class Sizes {
   }
 }
 
-let pizzaSizes = new Sizes(["S", "M", "L"]);
+class Pizza extends Sizes {
+  constructor(
+    readonly name: string,
+    private topping: string[],
+    public sizes: string[]
+  ) {
+    super(sizes);
+  }
 
-console.log(pizzaSizes.availableSizes);
-pizzaSizes.availableSizes = ["S", "M", "L", "XL"];
-console.log(pizzaSizes.availableSizes);
+  addTopping(topping: string) {
+    this.topping.push(topping);
+  }
+}
 
-// class Pizza {
-//   constructor(readonly name: string, private topping: string[]) {}
-
-//   addTopping(topping: string) {
-//     this.topping.push(topping);
-//   }
-// }
-
-// let pizza = new Pizza("Kapricoza", ["pepperoni", "mushrooms"]);
-// pizza.addTopping("kecap");
-// console.log(pizza);
+let pizza = new Pizza("Kapricoza", ["pepperoni", "mushrooms"], ["L", "XL"]);
+pizza.addTopping("kecap");
+console.log(pizza);
