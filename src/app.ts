@@ -1,6 +1,9 @@
-//an abstract class is a class tat you can not initiate, you use it only to extend from!
+interface SizesInterface {
+  //we can not add sizes property since it is protected(same for private members)
+  availableSizes: string[];
+}
 
-abstract class Sizes {
+abstract class Sizes implements SizesInterface {
   constructor(protected sizes: string[]) {}
 
   get availableSizes() {
@@ -12,9 +15,13 @@ abstract class Sizes {
   }
 }
 
-//new Sizes(['S'])  ERROR Cannot create an instance of an abstract class.!
+interface PizzaInterface extends SizesInterface {
+  readonly name: string;
+  addSize(size: string[]): void;
+  addTopping(topping: string): void;
+}
 
-class Pizza extends Sizes {
+class Pizza extends Sizes implements PizzaInterface {
   constructor(
     readonly name: string,
     private topping: string[],
